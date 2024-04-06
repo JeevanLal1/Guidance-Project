@@ -8,7 +8,7 @@ html {
 
 
 body {
-    background-image: linear-gradient(to left,rgb(37, 4, 108), rgb(78, 5, 111));
+    background-image: linear-gradient(to right,rgb(210, 226, 236), rgb(83, 174, 224));
   position: relative;
   width: 100%;
   height: 100%;
@@ -20,24 +20,26 @@ body {
 
 form {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* top: 50%;
+  left: 0%; */
+  transform: translate(0%, 0%);
   display: block;
-  width: 100%;
-  max-width: 400px;
-  background-image: linear-gradient(to bottom,rgb(210, 226, 236), rgb(83, 174, 224));
+  height:100%;
+  width: 200%;
+  max-width: 40%;
+  background-color: white;
   margin: 0;
   padding: 2.25em;
   box-sizing: border-box;
-  border: solid 1px linear-gradient(to bottom,rgb(210, 226, 236), rgb(83, 174, 224));
-  border-radius: 0.5em;
+  border: solid 1px white;
+  border-radius: 0em;
   font-family: "Source Sans Pro", sans-serif;
 }
 form .svgContainer {
   position: relative;
-  width: 200px;
-  height: 200px;
+  transform: translate(0%, 100%);
+  width: 150px;
+  height: 150px;
   margin: 0 auto 1em;
   border-radius: 50%;
   pointer-events: none;
@@ -70,15 +72,18 @@ form .svgContainer:after {
   border: solid 2.5px #043f58;
   border-radius: 50%;
 }
-form .inputGroup {
-  margin: 0 0 2em;
+form .inputGroup {   /* input box*/
+  margin: 0 0 1em;
+  width:100%;
+  transform: translate(0%, 150%);
   padding: 0;
   position: relative;
 }
-form .inputGroup:last-of-type {
+form .inputGroup:last-of-type {  /*log in*/
   margin-bottom: 0;
+  transform: translate(0%, 250%);
 }
-form label {
+form label {      /*show*/
   margin: 0 0 12px;
   display: block;
   font-size: 1.25em;
