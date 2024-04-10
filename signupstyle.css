@@ -1,0 +1,76 @@
+.navbar{
+    margin:0;
+    padding-top:50px;
+    color:rgba(255, 255, 255, 0.742);
+    background-color: transparent;
+    padding: center;
+  }
+
+  body {
+    width: 100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    background-image: url("louise-hill-CdBPMI26KDo-unsplash.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  }
+  .navbar{
+    margin-left:40%;
+    margin-right:10%;
+    padding-left:1px;
+    padding-right:1px;
+    padding-top:40px;
+    padding-bottom:4px;
+  }
+  .navbar a{
+    text-decoration:none;
+    color:rgba(231, 235, 241, 0.537);
+    font-size:25px;
+    font-weight:bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  #GUIDER{
+    padding:0;
+    margin:0;
+  }
+  #para1 {
+    font-size: 25px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:rgba(255, 255, 255, 0.985);
+    padding:0;
+    margin:0;
+    transform: translate(10%,170%);
+      }
+  #para2 {
+      font-size: 25px;
+      font-weight:bold;
+      font-family:'Times New Roman', Times, serif;
+      color:rgba(255, 255, 255, 0.971);
+      transform: translate(10%,400%);
+      letter-spacing: 1px;
+    }
+  #login a{
+    font-size: 23px;
+    font-weight:bold;
+    font-family:'Times New Roman', Times, serif;
+    color:rgba(29, 95, 131, 0.945);
+    position:absolute;
+    transform: translate(1750%,-350%);
+    text-decoration:none;
+  
+  }
+  #header{
+    font-size:45px;
+    font-weight: bold ;
+    font-family:'Times New Roman', Times, serif;
+    color:rgba(255, 255, 255, 0.934);
+    transform: translate(5%,-70%);
+  }
+  form{
+    width:30%;
+    transform: translate(200%,-20%);
+  }
+
+  
