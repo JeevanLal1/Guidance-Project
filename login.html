@@ -24,7 +24,7 @@
 </div>
 <div id="Head">Guider .</div>
 <div id="signin"><a href="signup.html">Sign In</a></div>
-<form>
+<form id="formid">
 	<div class="svgContainer">
 		<div>
 			<svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
@@ -149,6 +149,63 @@
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
 <!-- <script src='//s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js?r=182'></script><script  src="./script.js"></script> -->
+
+
+	<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+  import { getAuth,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAGbjodzE-OVSevjhVgyn_ZVUmNPyasrGo",
+    authDomain: "guider-2dab8.firebaseapp.com",
+    projectId: "guider-2dab8",
+    storageBucket: "guider-2dab8.appspot.com",
+    messagingSenderId: "842820673403",
+    appId: "1:842820673403:web:94bab46ac49d708b5a27de"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore();
+  const auth = getAuth(app);
+
+  let EmailIp = document.getElementById('loginEmail');
+  let PassIp = document.getElementById('loginPassword');
+  let MainForm = document.getElementById('formid');
+
+
+  let signinUser = evt =>{
+	evt.preventDefault();
+	signInWithEmailAndPassword(auth,EmailIp.value,PassIp.value)
+	.then(async(credentials)=>{
+		var ref=doc(db,"UserAuthList",credentials.user.uid);
+		const docSnap = await getDoc(ref);
+		if(docSnap.exists()){
+			sessionStorage.setItem("user-info",JSON.stringify({
+				name:docSnap.data().name,
+			}))
+			sessionStorage.setItem("user-creds",JSON.stringify(credentials.user));
+			window.location.href="home.html";
+		}
+	})
+	.catch((error)=>{
+		alert(error.message);
+		console.log(error.code);
+		console.log(error.message);
+	})
+  }
+  MainForm.addEventListener('submit',signinUser);
+</script>
+
+
+
+
 
 </body>
 </html>
