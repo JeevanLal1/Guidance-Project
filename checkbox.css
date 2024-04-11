@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #050303;
+  color: #000;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  perspective: 750px;
+  background-image: url("checkboxback.jpg");
+  background-size:cover;
+}
+*:not(:empty) {
+  transform-style: preserve-3d;
+}
+.checkboxes {
+    margin-top:80px;
+    
+    justify-content: left;
+    justify-content: space-around;
+    background-color: white;
+    background-image: url("checkboxback.jpg");
+    background-size:cover;
+    /* align-items: center;
+    justify-content: center; */
+  width: 500px;
+  height:400px;
+  padding-left:50px;
+  background-image: url("checkbocback2.jpg");
+  border-radius: 10%;
+}
+.flipBox {
+  position: relative;
+  height:30px;
+  display: block;
+  text-align: left;
+  margin: 1em auto;
+  cursor: pointer;
+  font-size:19px;
+}
+.flipBox:active > .flipBox_boxOuter {
+  height: 25%;
+}
+.flipBox span {
+  padding-left: 1.25em;
+}
+.flipBox > input {
+  appearance: none;
+  position: fixed;
+  left: -100vmax;
+  top: -100vmax;
+}
+.flipBox > input:checked ~ .flipBox_boxOuter {
+  animation: flipBox1 1s forwards linear;
+}
+.flipBox > input:checked ~ .flipBox_boxOuter .flipBox_box {
+  animation: flipBox2 1s forwards ease-in-out;
+}
+.flipBox > input:checked ~ .flipBox_shadow {
+  animation: flipBox3 1s forwards ease-in-out;
+}
+.flipBox > input:not(:checked) ~ .flipBox_boxOuter {
+  animation: flipBox4 1s forwards linear;
+}
+.flipBox > input:not(:checked) ~ .flipBox_boxOuter .flipBox_box {
+  animation: flipBox5 1s forwards ease-in-out;
+}
+.flipBox > input:not(:checked) ~ .flipBox_shadow {
+  animation: flipBox6 1s forwards ease-in-out;
+}
+.flipBox > input:disabled ~ * {
+  cursor: not-allowed;
+}
+.flipBox > input:disabled ~ .flipBox_boxOuter {
+  height: 0%;
+}
+.flipBox > input:disabled ~ .flipBox_boxOuter .flipBox_box > div:nth-child(6) {
+  background-color: #ccc;
+}
+.flipBox > input:disabled ~ .flipBox_boxOuter .flipBox_box > div:nth-child(-n + 5), .flipBox > input:disabled ~ .flipBox_boxOuter ~ .flipBox_shadow {
+  display: none;
+}
+.flipBox > input:focus-visible ~ span {
+  outline: 1px #000 solid;
+  outline-offset: 0.25em;
+}
+.flipBox_boxOuter {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  transform-origin: top;
+  transition: height 0.25s;
+}
+.flipBox_box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1em;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+.flipBox_box > div {
+  position: absolute;
+  width: 1em;
+  box-shadow: 0 0 0.25em #0007 inset;
+}
+.flipBox_box > div:nth-child(1) {
+  background-image: linear-gradient(green, white);
+  transform: rotateY(0deg) translateX(50%) rotateY(90deg);
+  height: 100%;
+}
+.flipBox_box > div:nth-child(2) {
+  background-image: linear-gradient(green, white);
+  transform: rotateY(90deg) translateX(50%) rotateY(90deg);
+  height: 100%;
+}
+.flipBox_box > div:nth-child(3) {
+  background-image: linear-gradient(green, white);
+  transform: rotateY(180deg) translateX(50%) rotateY(90deg);
+  height: 100%;
+}
+.flipBox_box > div:nth-child(4) {
+  background-image: linear-gradient(green, white);
+  transform: rotateY(270deg) translateX(50%) rotateY(90deg);
+  height: 100%;
+}
+.flipBox_box > div:nth-child(5) {
+  background-color: green;
+  transform: rotateX(90deg) translateY(-0.5em);
+  transform-origin: top;
+  height: 1em;
+}
+.flipBox_box > div:nth-child(5)::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  clip-path: polygon(12.5% 56.25%, 25% 43.75%, 37.5% 56.25%, 75% 18.75%, 87.5% 31.25%, 37.5% 81.25%, 12.5% 56.25%);
+}
+.flipBox_box > div:nth-child(6) {
+  bottom: 0;
+  background-color: white;
+  transform: rotateX(90deg) translateY(0.5em);
+  transform-origin: bottom;
+  height: 1em;
+}
+.flipBox_shadow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-50%) translateZ(-1px);
+  background-color: #0007;
+  filter: blur(0.2em);
+}
+@keyframes flipBox1 {
+  0%, 100% {
+    transform: rotateX(90deg);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: rotateX(90deg) translateY(2em);
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes flipBox2 {
+  from {
+    transform: translate(-50%, -50%) rotateX(0deg) rotateY(180deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0deg);
+  }
+}
+@keyframes flipBox3 {
+  0%, 100% {
+    transform: translateY(-50%) translateZ(-1px) scale(1);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(-50%) translateZ(-1px) scale(1.5);
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes flipBox4 {
+  0%, 100% {
+    transform: rotateX(90deg);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: rotateX(90deg) translateY(2em);
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes flipBox5 {
+  from {
+    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(-360deg) rotateY(180deg);
+  }
+}
+@keyframes flipBox6 {
+  0%, 100% {
+    transform: translateY(-50%) translateZ(-1px) scale(1);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(-50%) translateZ(-1px) scale(1.5);
+    animation-timing-function: ease-in;
+  }
+}
+@media (prefers-reduced-motion) {
+  .flipBox_boxOuter, .flipBox_box, .flipBox_shadow {
+    animation-play-state: paused !important;
+  }
+  .flipBox_boxOuter {
+    transition: none;
+  }
+}
+
+#navbar{
+    width:100%;
+    margin:0px;
+    height:70px;
+    display: flex;
+    justify-content: center;
+    /* background-size: cover; */
+  }
+  nav{
+    width: 100%;
+    height: 85px;
+    background-color: transparent;
+    /* line-height: 20px; */
+  }
+  nav ul{
+   display:flex;
+   justify-content: center;
+  }
+  nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    height: 85px;
+    /* height:100px; */
+    margin:0;
+    transition: 0.4s all;
+  }
+  nav ul li:hover{
+    background-color:rgb(76, 157, 214);
+    height:85px;
+  }
+  nav ul li a{
+    text-decoration:none;
+    font-family:'Times New Roman', Times, serif;
+    font-size:30px;
+    color: #fbfbfb;
+    /* padding-top: 40px; */
+    padding-right: 70px;
+    padding-bottom: 80px;
+    padding-left: 70px;
+    height:40px;
+    display: flex;
+    font-weight: bolder;
+  }
+  .button1{
+    width:100px;
+    height:50px;
+    font-size: larger;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    /* height:50px; */
+    background-color: black;
+    color:white;
+    font-weight: bolder;
+  }
+  .outer{
+    display:flex;
+    width:380px;
+    justify-content: center;
+  }
