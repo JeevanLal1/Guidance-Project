@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <div class="navbar">
+       <nav>
+	    <a href="home.html">Home</a>
+	    <a href="profile.html">Profile</a>
+	    <a href="about.html">About us</a>
+	    <a href="contact.html">Contact us</a>
+	    <div class="animation start-home"></div></nav>
+        <div id="Head">Guider .</div>
+        <button id="signout" type="button">Sign Out</button>
+        </div>
+            <main>
+                <section class="contact-form-box">
+                    <div class="contact-form">
+                        <h2>Contact Us</h2>
+                        <form action="#" method="POST">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" required></textarea>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </section>
+                
+            </main>
+            <footer>
+                <div class="footer-content">
+                    <section class="contact-info">
+                        <h2>Contact Information</h2>
+                        <p>Email:Guider@gmail.com</p>
+                        <p>Phone: +91 456127890</p>
+                        <p>Address: 123 Main Street, Allahabad, India</p></div></section>
+                        <div class="social-media">
+                            <p>Connect with us:</p>
+                            <a href="#" class="social-link">Twitter</a>
+                            <a href="#" class="social-link">Facebook</a>
+                            <a href="#" class="social-link">Instagram</a>
+                            <a href="#" class="social-link">LinkedIn</a>
+                        </div>
+                </div>
+            </footer>
+            <script>
+
+                let UserCreds=JSON.parse(sessionStorage.getItem("user-creds"));
+                let UserInfo=JSON.parse(sessionStorage.getItem("user-info"));
+                let MsgHead=document.getElementById('msg');
+                let GreetHead = document.getElementById('greet');
+                let SignoutBtn=document.getElementById('signout');
+                let Signout = () =>{
+                    sessionStorage.removeItem("user-creds");
+                    sessionStorage.removeItem("user-info");
+                    window.location.href = 'login.html'
+                }
+                let CheckCred = () =>{
+                    if(!sessionStorage.getItem("user-creds"))
+                        window.location.href='login.html'
+                    else{
+                        console.log(UserInfo);
+                        MsgHead.innerText=`user with email "${UserCreds.email}"logged in`;
+                        GreetHead.innerText=`welcome ${UserInfo.NAME}!`;
+                    }}
+                window.addEventListener('load',CheckCred);
+                SignoutBtn.addEventListener('click',Signout);
+            </script>
+</body>
+</html>
