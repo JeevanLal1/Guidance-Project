@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <div class="navbar">
+       <nav>
+	    <a href="#">Home</a>
+	    <a href="#">Profile</a>
+	    <a href="#">About us</a>
+	    <a href="#">Contact us</a>
+	    <div class="animation start-home"></div></nav>
+        <div id="Head">Guider .</div>
+        <button id="signout" type="button">Sign Out</button>
+        </div>
+      
+<div id="msg">msg</div>
+<div id="greet">hello</div>
+
+    <script>
+        let UserCreds=JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo=JSON.parse(sessionStorage.getItem("user-info"));
+        let MsgHead=document.getElementById('msg');
+        let GreetHead = document.getElementById('greet');
+        let SignoutBtn=document.getElementById('signout');
+        let Signout = () =>{
+            sessionStorage.removeItem("user-creds");
+            sessionStorage.removeItem("user-info");
+            window.location.href = 'login.html'
+        }
+        let CheckCred = () =>{
+            if(!sessionStorage.getItem("user-creds"))
+                window.location.href='login.html'
+            else{
+                MsgHead.innerText=`user with email "${UserCreds.email}"logged in`;
+                GreetHead.innerText=`welcome ${UserInfo.NAME}!`;
+            }}
+        window.addEventListener('load',CheckCred);
+        SignoutBtn.addEventListener('click',Signout);
+    </script>
+</body>
+</html>
