@@ -10,19 +10,108 @@
 
     <div class="navbar">
        <nav>
-	    <a href="#">Home</a>
-	    <a href="#">Profile</a>
-	    <a href="#">About us</a>
-	    <a href="#">Contact us</a>
+	    <a href="home.html">Home</a>
+	    <a href="profile.html">Profile</a>
+	    <a href="about.html">About us</a>
+	    <a href="contact.html">Contact us</a>
 	    <div class="animation start-home"></div></nav>
         <div id="Head">Guider .</div>
         <button id="signout" type="button">Sign Out</button>
         </div>
-      
-<div id="msg">msg</div>
-<div id="greet">hello</div>
+        <header>
+            <h1>Welcome to Your Learning Journey!</h1>
+        </header>
+        <main>
+            <!-- Greeting and Roadmap Introduction -->
+            <div id="welcome-section">
+                <h1>Hello, Explorer!</h1>
+                <p>Welcome to <strong>Guider</strong>, where your personalized learning journey begins.</p>
+            </div>
+    
+            <hr> <!-- This is the underline for visual separation -->
+    
+            <!-- Dynamic Topic Section -->
+            <div id="topic-roadmap">
+                <h2 class="underline">Topic: <span id="user-selected-topic">Coding</span></h2>
+                <p>Embark on a comprehensive exploration of <strong>[Topic Name]</strong>. Below is your step-by-step guide to becoming proficient in this field:</p>
+    
+                <!-- Roadmap Steps -->
+                <div class="container">
+                    <h1>Coding Roadmap</h1>
+                    <ol>
+                        <li><strong>Getting Started:</strong>
+                            <ul>
+                                <li>Familiarize yourself with the basics of programming.</li>
+                                <li>Choose a programming language (consider Python if you haven't already).</li>
+                                <li>Set up your development environment (IDE, text editor, etc.).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Building Knowledge:</strong>
+                            <ul>
+                                <li>Learn key concepts such as data types, variables, loops, and conditionals.</li>
+                                <li>Explore algorithms and data structures (essential for problem-solving).</li>
+                                <li>Understand object-oriented programming (OOP) principles.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Developing Expertise:</strong>
+                            <ul>
+                                <li>Dive into more advanced topics:</li>
+                                <ul>
+                                    <li>Web development (HTML, CSS, JavaScript)</li>
+                                    <li>Backend development (Node.js, Django, Flask)</li>
+                                    <li>Frontend frameworks (React, Angular, Vue.js)</li>
+                                    <li>Databases (SQL, MongoDB)</li>
+                                    <li>Version control (Git)</li>
+                                </ul>
+                                <li>Explore system design and architecture.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Applying Skills:</strong>
+                            <ul>
+                                <li>Work on real-world projects:</li>
+                                <ul>
+                                    <li>Build a personal website or portfolio.</li>
+                                    <li>Create a simple web app.</li>
+                                    <li>Contribute to open-source projects.</li>
+                                    <li>Solve coding challenges on platforms like LeetCode or HackerRank.</li>
+                                </ul>
+                            </ul>
+                        </li>
+                        <li><strong>Continual Learning:</strong>
+                            <ul>
+                                <li>Stay updated with industry trends:</li>
+                                <ul>
+                                    <li>Follow tech blogs, podcasts, and conferences.</li>
+                                    <li>Learn about cloud computing (AWS, Azure, GCP).</li>
+                                    <li>Explore machine learning and AI (if interested).</li>
+                                </ul>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+    
+            <!-- Resources Section -->
+            <div id="resources-section">
+                <h2>Explore Resources</h2>
+                <p>Enhance your learning with these curated resources:</p>
+                <ul>
+                    <li><a href="[Resource Link 1]" target="_blank">Resource 1</a> - DSA Course C++</li>
+                    <li><a href="[Resource Link 2]" target="_blank">Resource 2</a> - Python </li>
+                    <li><a href="[Resource Link 3]" target="_blank">Resource 3</a> - Web Development</li>
+                    <!-- Add more resources as needed -->
+                </ul>
+            </div>
+    
+            <!-- Link to Start Learning -->
+            <div id="start-learning-section">
+                <h2>Start Your Journey</h2>
+                <p>Ready to dive into your personalized learning experience</p>
+            </div>
+        </main>
 
     <script>
+
         let UserCreds=JSON.parse(sessionStorage.getItem("user-creds"));
         let UserInfo=JSON.parse(sessionStorage.getItem("user-info"));
         let MsgHead=document.getElementById('msg');
@@ -37,6 +126,7 @@
             if(!sessionStorage.getItem("user-creds"))
                 window.location.href='login.html'
             else{
+                console.log(UserInfo);
                 MsgHead.innerText=`user with email "${UserCreds.email}"logged in`;
                 GreetHead.innerText=`welcome ${UserInfo.NAME}!`;
             }}
