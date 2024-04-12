@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="checkbox.css">
 </head>
 <body>
+  <div id="header">Guider.</div>
     <div id="navbar">
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About </a></li>
+                <li><a href="#">Contact </a></li>
             </ul>
         </nav>
     </div>
     <div class="checkboxes">
-        <h2 class ="top-line"> MARK YOUR INTERESTED CHOICES.</h2>
-
+        <h2 class ="top-line"> Mark your Interested Choices</h2>
         <label class="flipBox" aria-label="Checkbox 1">
           <input type="checkbox" />
-          <span>Checkbox 1</span>
+          <span>Web Development</span>
           <div class="flipBox_boxOuter">
             <div class="flipBox_box">
               <div></div><div></div><div></div><div></div><div></div><div></div>
@@ -33,7 +33,7 @@
       
         <label class="flipBox" aria-label="Checkbox 2">
           <input type="checkbox" />
-          <span>Checkbox 2</span>
+          <span>Mobile App Development</span>
           <div class="flipBox_boxOuter">
             <div class="flipBox_box">
               <div></div><div></div><div></div><div></div><div></div><div></div>
@@ -44,7 +44,7 @@
       
         <label class="flipBox" aria-label="Checkbox 3">
           <input type="checkbox" />
-          <span>Checkbox 3</span>
+          <span>Game Development</span>
           <div class="flipBox_boxOuter">
             <div class="flipBox_box">
               <div></div><div></div><div></div><div></div><div></div><div></div>
@@ -53,21 +53,32 @@
           <div class="flipBox_shadow"></div>
         </label>
        
-      
-        <!-- <label class="flipBox" aria-label="Checkbox 4">
-          <input type="checkbox" disabled />
-          <span>Disabled checkbox</span>
-          <div class="flipBox_boxOuter">
-            <div class="flipBox_box">
-              <div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
-          </div> -->
           <div class="flipBox_shadow"></div>
         </label>
       
         <label class="flipBox" aria-label="Checkbox 5">
           <input type="checkbox" />
-          <span>Checkbox 4</span>
+          <span>Blockchain and Cryptocurrency</span>
+          <div class="flipBox_boxOuter">
+            <div class="flipBox_box">
+              <div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+          </div>
+          <div class="flipBox_shadow"></div>
+        </label>
+        <label class="flipBox" aria-label="Checkbox 5">
+          <input type="checkbox" />
+          <span>Internet of Things (IoT)</span>
+          <div class="flipBox_boxOuter">
+            <div class="flipBox_box">
+              <div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+          </div>
+          <div class="flipBox_shadow"></div>
+        </label>
+        <label class="flipBox" aria-label="Checkbox 5">
+          <input type="checkbox" />
+          <span>Data Science and Machine Learning</span>
           <div class="flipBox_boxOuter">
             <div class="flipBox_box">
               <div></div><div></div><div></div><div></div><div></div><div></div>
@@ -77,10 +88,13 @@
         </label>
         <label class="outer">
             
-          <button   class="button1" type="button" onclick="alert('Madarchod!!')">NEXT</button>
+          <button  class="button1" type="button" onclick="redirect()">NEXT</button>
         </label>
-      
-      </div>
-    
+    </div>
+    <script>
+      function redirect(){
+        window.location.href = "home.html";
+      }
+    </script>
 </body>
 </html>
