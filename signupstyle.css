@@ -11,7 +11,7 @@
     height:100%;
     margin:0;
     padding:0;
-    background-image: url("louise-hill-CdBPMI26KDo-unsplash.jpg");
+    background-image: url("signbg.jpg");
     background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -57,7 +57,7 @@
     font-family:'Times New Roman', Times, serif;
     color:rgba(29, 95, 131, 0.945);
     position:absolute;
-    transform: translate(1750%,-350%);
+    transform: translate(1750%,-550%);
     text-decoration:none;
   
   }
@@ -68,9 +68,10 @@
     color:rgba(255, 255, 255, 0.934);
     transform: translate(5%,-70%);
   }
+
   form{
     width:30%;
-    transform: translate(200%,-20%);
+    transform: translate(200%,-30%);
   }
 
   
