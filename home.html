@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
@@ -33,7 +33,7 @@
             <!-- Dynamic Topic Section -->
             <div id="topic-roadmap">
                 <h2 class="underline">Topic: <span id="user-selected-topic">Coding</span></h2>
-                <p>Embark on a comprehensive exploration of <strong>[Topic Name]</strong>. Below is your step-by-step guide to becoming proficient in this field:</p>
+                <p>Embark on a comprehensive exploration of <strong>Coding</strong>. Below is your step-by-step guide to becoming proficient in this field:</p>
     
                 <!-- Roadmap Steps -->
                 <div class="container">
@@ -114,8 +114,6 @@
 
         let UserCreds=JSON.parse(sessionStorage.getItem("user-creds"));
         let UserInfo=JSON.parse(sessionStorage.getItem("user-info"));
-        let MsgHead=document.getElementById('msg');
-        let GreetHead = document.getElementById('greet');
         let SignoutBtn=document.getElementById('signout');
         let Signout = () =>{
             sessionStorage.removeItem("user-creds");
@@ -125,11 +123,7 @@
         let CheckCred = () =>{
             if(!sessionStorage.getItem("user-creds"))
                 window.location.href='login.html'
-            else{
-                console.log(UserInfo);
-                MsgHead.innerText=`user with email "${UserCreds.email}"logged in`;
-                GreetHead.innerText=`welcome ${UserInfo.NAME}!`;
-            }}
+            }
         window.addEventListener('load',CheckCred);
         SignoutBtn.addEventListener('click',Signout);
     </script>
