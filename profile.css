@@ -69,7 +69,7 @@
         margin-left:0;
         margin-right:0;
         padding:0;  
-        transform: translate(-1%,-25%);
+        transform: translate(-1%,-1%);
         position: absolute;
         height:10%;
         width:101%;
@@ -88,7 +88,7 @@
     #signout{
         z-index:1;
         position:absolute;
-        transform: translate(1350px, -90%);
+        transform: translate(1355px, -90%);
         background-color:transparent;
         border-color: white;
   color: white;
@@ -106,7 +106,7 @@
     #Head{
         z-index:1;
         position:absolute;
-        transform: translate(30%, -70%);
+        transform: translate(33%, -70%);
         font-size:50px;
         font-weight: bold ;
         font-family:'Times New Roman', Times, serif;
